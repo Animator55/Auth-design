@@ -16,33 +16,33 @@ export default function Login({setPage}: Props) {
         console.log(Form.current[1].value)
     }
 
-    return <section>
+    return <section className='auth-section'>
         <h1>Login</h1>
         <p>You can login with a registered account or with your Google account</p>
-        <button>
+        <button className='google-button'>
             <FontAwesomeIcon icon={faG} />
             <h5>Login with Google</h5>
         </button>
 
-        <div>or</div>
+        <div className='divisor'></div>
 
-        <form ref={Form} onSubmit={submit}>
-            <div>
+        <form ref={Form} onSubmit={submit} className='form'>
+            <div className='labeled-input'>
                 <label>Email</label>
                 <input />
             </div>
-            <div>
+            <div className='labeled-input'>
                 <label>Password</label>
                 <button onClick={()=>{setPage("forgot")}}>Forget password?</button>
                 <input />
             </div>
-            <div>
+            <div className='check-box'>
                 <h4>Remember me</h4>
                 <FontAwesomeIcon icon={faSquare} />
             </div>
 
             <button type='submit'>Login</button>
-            <button onClick={()=>{setPage("register")}}>Don't have an account</button>
+            <button className='sec-button' onClick={()=>{setPage("register")}}>Don't have an account</button>
         </form>
     </section>
 

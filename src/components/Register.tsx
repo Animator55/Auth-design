@@ -16,7 +16,7 @@ export default function Register({setPage}: Props) {
         console.log(Form.current[1].value)
     }
     return <section>
-        <h1>Login</h1>
+        <h1>Register</h1>
         <form ref={Form} onSubmit={submit}>
             <div>
                 <label>Name</label>

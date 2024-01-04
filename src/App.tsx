@@ -1,5 +1,5 @@
 import React from 'react'
-import './App.css'
+import './assets/App.css'
 import Login from './components/Login'
 import Info from './components/Info'
 import Register from './components/Register'
@@ -24,7 +24,5 @@ export default function App() {
     "forgot": <ForgotPassword/>
   }
 
-  return <main>
-      {pages[page]}
-  </main>
+  return pages[page]
 }
