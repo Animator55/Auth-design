@@ -32,7 +32,6 @@ button {
     border: none;
     padding: 0;
 }
-
 /**/
 
 .auth-section {
@@ -99,6 +98,7 @@ button {
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
+    padding: 0 1rem;
 }
 
 .labeled-input {
@@ -134,8 +134,26 @@ button {
 .check-box {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1rem;
     margin: 1rem 0 0;
+}
+.check-box > .box {
+    background-color: transparent;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+}
+.check-box > .box * {
+    pointer-events: none;
+    color: var(--corange);
+}
+.check-box > .box.check > *:last-child, .check-box > .box > *:first-child {
+    display: block;
+}
+.check-box > .box > *:last-child, .check-box > .box.check > *:first-child {
+    display: none;
 }
 
 .form > button[type="submit"]{

@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faG, faSquare } from '@fortawesome/free-solid-svg-icons'
+import { faG, faSquare, faSquareCheck } from '@fortawesome/free-solid-svg-icons'
 
 type Props = {
     setPage: Function
@@ -9,11 +9,17 @@ type Props = {
 export default function Login({setPage}: Props) {
     const Form = React.useRef(null)
 
-    const submit = (e)=>{
+    const submit = (e: React.FormEvent<HTMLFormElement>)=>{
         e.preventDefault()
 
+        console.log(Form)
         console.log(Form.current[0].value)
         console.log(Form.current[1].value)
+    }
+
+    const toggleRemember = (e: MouseEvent) =>{
+        let button = e.currentTarget as HTMLButtonElement
+        button.classList.toggle('check')
     }
 
     return <section className='auth-section'>
@@ -29,16 +35,19 @@ export default function Login({setPage}: Props) {
         <form ref={Form} onSubmit={submit} className='form'>
             <div className='labeled-input'>
                 <label>Email</label>
-                <input />
+                <input name='email'/>
             </div>
             <div className='labeled-input'>
                 <label>Password</label>
                 <button onClick={()=>{setPage("forgot")}}>Forget password?</button>
-                <input />
+                <input name="password"/>
             </div>
             <div className='check-box'>
                 <h4>Remember me</h4>
-                <FontAwesomeIcon icon={faSquare} />
+                <button className='box' onClick={toggleRemember}>
+                    <FontAwesomeIcon icon={faSquare} />
+                    <FontAwesomeIcon className='d-none' icon={faSquareCheck} />
+                </button>
             </div>
 
             <button type='submit'>Login</button>
