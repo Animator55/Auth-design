@@ -8,6 +8,7 @@ type Props = {
 
 export default function Login({setPage}: Props) {
     const Form = React.useRef(null)
+    const [error, setError] = React.useState("")
 
     const submit = (e: React.FormEvent<HTMLFormElement>)=>{
         e.preventDefault()
@@ -15,6 +16,8 @@ export default function Login({setPage}: Props) {
         console.log(Form)
         console.log(Form.current[0].value)
         console.log(Form.current[1].value)
+
+
     }
 
     const toggleRemember = (e: MouseEvent) =>{
@@ -25,12 +28,14 @@ export default function Login({setPage}: Props) {
     return <section className='auth-section'>
         <h1>Login</h1>
         <p>You can login with a registered account or with your Google account</p>
-        <button className='google-button'>
+        {/* <button className='google-button'>
             <FontAwesomeIcon icon={faG} />
             <h5>Login with Google</h5>
-        </button>
+        </button> */}
 
-        <div className='divisor'></div>
+        <div className='divisor' data-text=""></div>
+
+        <section className='error-box'></section>
 
         <form ref={Form} onSubmit={submit} className='form'>
             <div className='labeled-input'>
@@ -46,7 +51,7 @@ export default function Login({setPage}: Props) {
                 <h4>Remember me</h4>
                 <button className='box' onClick={toggleRemember}>
                     <FontAwesomeIcon icon={faSquare} />
-                    <FontAwesomeIcon className='d-none' icon={faSquareCheck} />
+                    <FontAwesomeIcon icon={faSquareCheck} />
                 </button>
             </div>
 

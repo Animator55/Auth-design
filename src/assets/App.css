@@ -32,6 +32,15 @@ button {
     border: none;
     padding: 0;
 }
+
+.disabled {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+button:not(.disabled) {
+    cursor: pointer;
+}
 /**/
 
 .auth-section {
@@ -79,7 +88,7 @@ button {
     align-items: center;
 }
 .divisor::after {
-    content: "or";
+    content:attr(data-text);
     position: absolute;
     text-align: center;
     width: 100%;
@@ -154,6 +163,17 @@ button {
 }
 .check-box > .box > *:last-child, .check-box > .box.check > *:first-child {
     display: none;
+}
+
+.see-more {
+    background-color: transparent;
+    color: var(--corange);
+    margin-left: 1rem;
+    font-size: 1rem;
+}
+
+.see-more:hover {
+    text-decoration: underline;
 }
 
 .form > button[type="submit"]{
