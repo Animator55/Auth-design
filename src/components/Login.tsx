@@ -13,9 +13,11 @@ export default function Login({setPage}: Props) {
     const submit = (e: React.FormEvent<HTMLFormElement>)=>{
         e.preventDefault()
 
+        if(Form.current[0].value === "" || Form.current[2].value === "") return setError("Complete all inputs")
         console.log(Form)
         console.log(Form.current[0].value)
-        console.log(Form.current[1].value)
+        console.log(Form.current[2].value)
+        console.log(Form.current[3].value)
 
 
     }
@@ -34,8 +36,8 @@ export default function Login({setPage}: Props) {
         </button> */}
 
         <div className='divisor' data-text=""></div>
+        <section className='error-box'>{error}</section>
 
-        <section className='error-box'></section>
 
         <form ref={Form} onSubmit={submit} className='form'>
             <div className='labeled-input'>

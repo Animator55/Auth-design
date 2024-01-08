@@ -8,6 +8,7 @@ body {
     --clightgray: #cfcbc7;
     --cwhite: #ffffff;
     --corange: #f07f34;
+    --cred: #be4848;
     height: 100vh;
     max-height: 100vh;
     max-width: 100%;
@@ -64,6 +65,18 @@ button:not(.disabled) {
     color: var(--cgray);
     margin: 0;
     margin-bottom: 1rem;
+}
+
+.error-box {
+    height: fit-content;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 3px;
+    border: 1px solid var(--cred);
+    color:var(--cred);
+}
+.error-box:empty {
+    border: none;
 }
 
 .google-button {
