@@ -1,27 +1,41 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faG, faSquare, faSquareCheck } from '@fortawesome/free-solid-svg-icons'
+import { faEye, faEyeSlash, faG, faSquare, faSquareCheck } from '@fortawesome/free-solid-svg-icons'
 
 type Props = {
     setPage: Function
+    confirm: Function
 }
 
-export default function Login({setPage}: Props) {
+export default function Login({setPage, confirm}: Props) {
     const Form = React.useRef(null)
     const [error, setError] = React.useState("")
 
     const submit = (e: React.FormEvent<HTMLFormElement>)=>{
         e.preventDefault()
+        
+        if(!Form.current) return
+        
+        if(Form.current[0].value === "" || Form.current[1].value === "") return setError("Complete all inputs")
+        
+        let [email, password] = [Form.current[0].value, Form.current[1].value]
+        let submit = Form.current[4] as HTMLButtonElement
 
-        if(Form.current[0].value === "" || Form.current[2].value === "") return setError("Complete all inputs")
-        console.log(Form)
-        console.log(Form.current[0].value)
-        console.log(Form.current[2].value)
-        console.log(Form.current[3].value)
+        submit.classList.add('loading-button')
 
-
+        setTimeout(()=>{
+            confirm(email, password)
+            submit.classList.remove('loading-button')
+        }, 1000)
     }
 
+    const togglePassword = (e: MouseEvent) =>{
+        let button = e.currentTarget as HTMLButtonElement
+        button.classList.toggle('check')
+        
+        let input = button.previousElementSibling as HTMLInputElement
+        input.type = input.type === "text" ? "password" : "text"
+    }
     const toggleRemember = (e: MouseEvent) =>{
         let button = e.currentTarget as HTMLButtonElement
         button.classList.toggle('check')
@@ -46,19 +60,25 @@ export default function Login({setPage}: Props) {
             </div>
             <div className='labeled-input'>
                 <label>Password</label>
-                <button onClick={()=>{setPage("forgot")}}>Forget password?</button>
-                <input name="password"/>
+                <a onClick={()=>{setPage("forgot")}}>Forget password?</a>
+                <div className='input-container'>
+                    <input name="password"/>
+                    <button type='button' onClick={togglePassword}>
+                        <FontAwesomeIcon icon={faEye} />
+                        <FontAwesomeIcon icon={faEyeSlash} />
+                    </button>
+                </div>
             </div>
             <div className='check-box'>
                 <h4>Remember me</h4>
-                <button className='box' onClick={toggleRemember}>
+                <button className='box' type='button' onClick={toggleRemember}>
                     <FontAwesomeIcon icon={faSquare} />
                     <FontAwesomeIcon icon={faSquareCheck} />
                 </button>
             </div>
 
-            <button type='submit'>Login</button>
-            <button className='sec-button' onClick={()=>{setPage("register")}}>Don't have an account</button>
+            <button type='submit' data-text="Login"></button>
+            <button className='sec-button' type="button" onClick={()=>{setPage("register")}}>Don't have an account</button>
         </form>
     </section>
 

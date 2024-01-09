@@ -12,14 +12,17 @@ type pagesRouter = {
 export default function App() {
   const [page, setPage] = React.useState("login")
 
+  const confirm = (email: string, password: string, name?: string) =>{
+    console.log(email, password, name)
+  }
   const pages: pagesRouter = {
     "login": <>
       <Info/>
-      <Login setPage={setPage}/>
+      <Login setPage={setPage} confirm={confirm}/>
     </>,
     "register": <>
       <Info/>
-      <Register setPage={setPage}/>
+      <Register setPage={setPage} confirm={confirm}/>
     </>,
     "forgot": <ForgotPassword/>
   }
