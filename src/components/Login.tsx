@@ -62,10 +62,10 @@ export default function Login({setPage, confirm}: Props) {
                 <label>Password</label>
                 <a onClick={()=>{setPage("forgot")}}>Forget password?</a>
                 <div className='input-container'>
-                    <input name="password"/>
+                    <input name="password" type='password'/>
                     <button type='button' onClick={togglePassword}>
-                        <FontAwesomeIcon icon={faEye} />
                         <FontAwesomeIcon icon={faEyeSlash} />
+                        <FontAwesomeIcon icon={faEye} />
                     </button>
                 </div>
             </div>

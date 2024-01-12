@@ -15,6 +15,11 @@ export default function App() {
   const confirm = (email: string, password: string, name?: string) =>{
     console.log(email, password, name)
   }
+
+  const sendPassword = (email: string) =>{
+    console.log(email)
+  }
+
   const pages: pagesRouter = {
     "login": <>
       <Info/>
@@ -24,7 +29,7 @@ export default function App() {
       <Info/>
       <Register setPage={setPage} confirm={confirm}/>
     </>,
-    "forgot": <ForgotPassword/>
+    "forgot": <ForgotPassword setPage={setPage} sendPassword={sendPassword}/>
   }
 
   return pages[page]

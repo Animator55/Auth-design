@@ -16,7 +16,7 @@ export default function Register({setPage, confirm}: Props) {
         
         if(!Form.current) return
         
-        if(Form.current[0].value === "" || Form.current[1].value === "") return setError("Complete all inputs")
+        if(Form.current[0].value === "" || Form.current[1].value === "" || Form.current[2].value === "") return setError("Complete all inputs")
         
         let [name, email, password] = [Form.current[0].value, Form.current[0].value, Form.current[2].value]
         let submit = Form.current[6] as HTMLButtonElement
@@ -65,10 +65,10 @@ export default function Register({setPage, confirm}: Props) {
             <div className='labeled-input'>
                 <label>Password</label>
                 <div className='input-container'>
-                    <input name="password"/>
+                    <input name="password" type='password'/>
                     <button type='button' onClick={togglePassword}>
-                        <FontAwesomeIcon icon={faEye} />
                         <FontAwesomeIcon icon={faEyeSlash} />
+                        <FontAwesomeIcon icon={faEye} />
                     </button>
                 </div>
             </div>
