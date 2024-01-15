@@ -250,6 +250,85 @@ button:not(.disabled) {
     background-color: var(--cblack);
     color: var(--cwhite);
     padding: 4rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.info-background {
+    position: absolute;
+    inset: 0;
+}
+.info-background .ball-1 {
+    background-color: var(--cgray);
+    opacity: 0.8;
+    position:absolute;
+    height: 14rem;
+    width: 13rem;
+    rotate: 30deg;
+    border-radius: 50%;
+    bottom: 0rem;
+    left: -20%;
+    animation: ball-1 10s 2s infinite linear;
+}
+.info-background .ball-2 {
+    background-color: var(--cgray);
+    position:absolute;
+    height: 8rem;
+    width: 6.5rem;
+    rotate: 30deg;
+    border-radius: 50%;
+    top: 2rem;
+    left: 110%;
+    animation: ball-2 7s infinite linear;
+}
+.info-background .ball-3 {
+    background-color: var(--cgray);
+    opacity: 0.5;
+    position:absolute;
+    height: 20rem;
+    width: 25rem;
+    rotate: 30deg;
+    border-radius: 50%;
+    top: -60%;
+    left: 10%;
+    animation: ball-3 14s 5s infinite linear;
+}
+
+@keyframes ball-1 {
+    from {
+        rotate: 30deg;
+        left: -40%;
+        bottom: 0rem;
+    }
+    to {
+        left: 110%;
+        bottom: 10rem;
+        rotate: 1200deg;
+    }
+}
+@keyframes ball-2 {
+    from {
+        rotate: 30deg;
+        left: 110%;
+        top: 2rem;
+    }
+    to {
+        left: -40%;
+        top: 3rem;
+        rotate: 1200deg;
+    }
+}
+@keyframes ball-3 {
+    from {
+        rotate: 30deg;
+        left: 10%;
+        top: -60%;
+    }
+    to {
+        left: 40%;
+        top: 130%;
+        rotate: 500deg;
+    }
 }
 
 /***/
