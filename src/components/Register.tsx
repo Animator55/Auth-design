@@ -27,7 +27,7 @@ export default function Register({setPage, confirm}: Props) {
         setTimeout(()=>{
             confirm(email, password, name)
             submit.classList.remove('loading-button')
-        }, 1000)
+        }, 2000)
     }
 
 

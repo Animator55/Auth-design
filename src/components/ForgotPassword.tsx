@@ -29,6 +29,12 @@ export default function ForgotPassword({sendPassword, setPage}: Props) {
 
   return (
     <section className='forgot-back'>
+      <div className="info-background">
+        <div className="ball-4"/>
+        <div className="ball-1"/>
+        <div className="ball-2"/>
+        <div className="ball-3"/>
+      </div>
       <div className='forgot-div'>
         <h1>Send a new password</h1>
 

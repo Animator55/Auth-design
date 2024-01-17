@@ -26,7 +26,7 @@ export default function Login({setPage, confirm}: Props) {
         setTimeout(()=>{
             confirm(email, password)
             submit.classList.remove('loading-button')
-        }, 1000)
+        }, 2000)
     }
 
     const togglePassword = (e: MouseEvent) =>{
